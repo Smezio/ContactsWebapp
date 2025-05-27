@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "contacts")
+@RequestMapping("/api")
 public class ContactController {
     
-    @GetMapping("/")
+    @GetMapping("/contacts")
     public List<Contact> getAllContacts() {
         try {
             List<Contact> result = new ArrayList<>();
