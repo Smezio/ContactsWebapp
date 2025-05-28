@@ -1,8 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "../environments/environment";
 
-export class Contact {
+/*export class Contact {
     
     private id : Number;
     private firstName : String;
@@ -32,6 +33,14 @@ export class Contact {
 
     public getTelephone() : String { return this.telephone; }
     public setTelephone(telephone : String) : void { this.telephone = telephone; }
+}*/
+
+export interface Contact {
+    id : Number;
+    firstName : String;
+    lastName : String;
+    email : String;
+    telephone : String;
 }
 
 @Injectable({providedIn: 'root'}) // understand providedIn param
@@ -39,7 +48,7 @@ export class ContactService {
 
     constructor(private http: HttpClient) {}
 
-    private apiUrl = 'https://contactswebapp-api.onrender.com/api/contacts';
+    private apiUrl = environment.apiUrl + '/contacts';    
 
     getContacts() : Observable<Contact[]> {
         return this.http.get<Contact[]>(this.apiUrl);

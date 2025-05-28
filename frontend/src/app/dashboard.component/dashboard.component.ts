@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { Contact, ContactService } from "./contact.service";
+import { Contact, ContactService } from "../contact.service";
 
 @Component({
     selector: 'dashboard',

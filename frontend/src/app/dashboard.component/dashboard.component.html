@@ -1,0 +1,12 @@
+<div class="dashboard">
+    @for(contact of contacts; track contact.id) {
+        <ul>
+            <li>{{contact.firstName}}</li>
+            <li>{{contact.lastName}}</li>
+            <li>{{contact.email}}</li>
+            <li>{{contact.telephone}}</li>
+        </ul>
+    } @empty {
+        <h1>No data</h1>
+    }
+</div>
