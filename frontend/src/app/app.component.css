@@ -5,7 +5,7 @@
     display: inline-block;
     background-color: yellow;
 
-    & li {
+    & ul {
         text-decoration: none;
 
         margin: 0 20px;
