@@ -1,4 +1,4 @@
-package com.example.contactswebapp.model;
+package com.example.contactswebapp.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,7 +13,7 @@ public class Contact {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -43,15 +43,18 @@ public class Contact {
         this.telephone = telephone;
     }
     
-    String getFirstName() { return firstName; }
-    void setFirstName(String firstName) { this.firstName = firstName; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    String getLastName() { return lastName; }
-    void setLastName(String lastName) { this.lastName = lastName; }
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    String getEmail() { return email; }
-    void setEmail(String email) { this.email = email; }
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
 
-    String getTelephone() { return telephone; }
-    void setTelephone(String telephone) { this.telephone = firstName; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getTelephone() { return telephone; }
+    public void setTelephone(String telephone) { this.telephone = telephone; }
 }
