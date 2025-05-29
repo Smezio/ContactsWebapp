@@ -3,6 +3,7 @@ import { provideServerRendering } from '@angular/platform-server';
 import { provideServerRouting } from '@angular/ssr';
 import { appConfig } from './app.config';
 import { serverRoutes } from './app.routes.server';
+import { AuthService } from '@auth0/auth0-angular';
 
 const serverConfig: ApplicationConfig = {
   providers: [
@@ -11,4 +12,13 @@ const serverConfig: ApplicationConfig = {
   ]
 };
 
-export const config = mergeApplicationConfig(appConfig, serverConfig);
+// Provide solution for Auth0 issue
+const provideMockServiceForSSRConfig: ApplicationConfig = {
+  providers: [{
+    provide: AuthService,
+    useValue: {},
+    },
+  ],
+};
+
+export const config = mergeApplicationConfig(appConfig, serverConfig, provideMockServiceForSSRConfig);

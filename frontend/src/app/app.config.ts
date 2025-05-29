@@ -6,6 +6,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideAuth0 } from '@auth0/auth0-angular';
 import { environment } from '../environments/environment';
+import { AsyncPipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,10 +15,11 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     provideAuth0({
-      domain: 'ricsme.eu.auth0.com',
-      clientId: 'MhSsleJHNIXHOf32gpsYVwSacaJp97k7',
+      domain: environment.auth.domain,
+      clientId: environment.auth.clientId,
       authorizationParams: {
-        redirect_uri: environment.redirectUri // NON FUNZIONA!
+        redirect_uri: environment.auth.redirectUri,        
+
       }
     }),
   ]
