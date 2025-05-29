@@ -4,8 +4,8 @@ import { environment } from "../../environments/environment";
 
 @Component({
     selector: 'logout-btn',
-    templateUrl: './logoutbtn.component.html',
-    //standalone: true,
+    template: '<button class="btn btn-primary btn-block" (click)="logout()">Log out</button>',
+    standalone: true,
 })
 
 export class LogoutBtn {
