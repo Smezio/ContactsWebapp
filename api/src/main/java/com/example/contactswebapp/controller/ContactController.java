@@ -39,6 +39,18 @@ public class ContactController {
         }
     }
 
+    @GetMapping("/private")
+    public List<Contact> getAllContactsPrivate() {
+        try {
+            List<Contact> result = contactService.getAllContacts();            
+            return result;
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage(), ex.getCause());
+        }
+    }
+
     @PostMapping("/contacts")
     public Contact saveContact(@RequestBody Contact contact) {
         try {
