@@ -7,7 +7,7 @@ import { AsyncPipe } from "@angular/common";
 
 @Component({
     selector: 'navbar',
-    imports: [RouterLink, RouterLinkActive, AsyncPipe, LoginBtn, LogoutBtn],
+    imports: [RouterLink, RouterLinkActive, AsyncPipe],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css'
 })
