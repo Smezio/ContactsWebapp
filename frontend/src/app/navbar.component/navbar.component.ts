@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { AuthService } from "@auth0/auth0-angular";
-import { LoginBtn } from "../loginbtn.component";
-import { LogoutBtn } from "../logoutbtn.component";
+import { LoginBtn } from "./loginbtn.component";
+import { LogoutBtn } from "./logoutbtn.component";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { AsyncPipe } from "@angular/common";
 
