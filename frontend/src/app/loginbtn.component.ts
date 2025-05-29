@@ -3,7 +3,7 @@ import { AuthService } from "@auth0/auth0-angular";
 
 @Component({
     selector: 'login-btn',
-    template: '<button (click)="login()">Log in</button>',
+    templateUrl: './loginbtn.component.html',
     styles: [],
     standalone: true,
 })

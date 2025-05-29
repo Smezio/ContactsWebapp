@@ -18,8 +18,7 @@ export const appConfig: ApplicationConfig = {
       domain: environment.auth.domain,
       clientId: environment.auth.clientId,
       authorizationParams: {
-        redirect_uri: environment.auth.redirectUri,        
-
+        redirect_uri: environment.auth.redirectUri,
       }
     }),
   ]
