@@ -15,8 +15,7 @@ public class SecurityConfig {
 
         return http
                 .authorizeHttpRequests((authorize) -> authorize
-                    .requestMatchers("/api/contacts").permitAll()
-                    .requestMatchers("/api/private").authenticated()
+                    .requestMatchers("/api/contacts").authenticated()
                     )
                     .cors(withDefaults())
                     .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())

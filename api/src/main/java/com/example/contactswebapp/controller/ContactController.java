@@ -19,7 +19,7 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
-@CrossOrigin(maxAge = 3600)
+@CrossOrigin(value = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 public class ContactController {
@@ -29,18 +29,6 @@ public class ContactController {
     
     @GetMapping("/contacts")
     public List<Contact> getAllContacts() {
-        try {
-            List<Contact> result = contactService.getAllContacts();            
-            return result;
-        }
-        catch (Exception ex) {
-            ex.printStackTrace();
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage(), ex.getCause());
-        }
-    }
-
-    @GetMapping("/private")
-    public List<Contact> getAllContactsPrivate() {
         try {
             List<Contact> result = contactService.getAllContacts();            
             return result;

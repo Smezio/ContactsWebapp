@@ -48,7 +48,7 @@ export class ContactService {
 
     constructor(private http: HttpClient) {}
 
-    private apiUrl = environment.apiUrl + '/contacts';    
+    private apiUrl = environment.apiUrl + '/contacts';
 
     getContacts() : Observable<Contact[]> {
         return this.http.get<Contact[]>(this.apiUrl);

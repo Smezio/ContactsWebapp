@@ -1,6 +1,5 @@
 okta:
   oauth2:
-    # Replace with the domain of your Auth0 tenant.
     issuer: https://ricsme.eu.auth0.com/
-    # Replace with the API Identifier for your Auth0 API.
     audience: https://contactswebapp-api.onrender.com/api
+    #audience: http://localhost:8080/api
