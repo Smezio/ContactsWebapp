@@ -56,6 +56,9 @@ export class ContactsTable implements OnInit {
             .subscribe(
                 result => {
                     if(result != undefined) {
+                        if(result === 'close')
+                            return;
+
                         if(dialogMode.type == 'add') {
                             console.log('Contact created successfully');
                             this.contacts = [...this.contacts, result];
@@ -93,6 +96,9 @@ export class ContactsTable implements OnInit {
             .subscribe(
                 result => {
                     if(result != null) {
+                        if(result === 'close')
+                            return;
+                        
                         console.log('Contact deleted successfully');
                         this.contacts = this.contacts.filter(value => value.id != result);
                     }

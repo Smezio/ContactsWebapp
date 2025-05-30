@@ -85,13 +85,11 @@ export class ContactForm implements OnInit{
             return undefined;
 
         
-        this.contact = {
-            id: this.contact.id ?? undefined,
-            firstName : String(this.firstName.value),
-            lastName : String(this.lastName.value),
-            email : String(this.email.value),
-            telephone : String(this.telephone.value),
-        };
+        this.contact.firstName = String(this.firstName.value);
+        this.contact.lastName = String(this.lastName.value);
+        this.contact.email = String(this.email.value);
+        this.contact.telephone = String(this.telephone.value);
+        
 
         return this.contact;
     }

@@ -24,8 +24,10 @@ a {
 }
 
 login-btn {
-  float: right
+  float: right;
+  margin: 20px;
 }
 logout-btn {
-  float: right
+  float: right;
+  margin: 20px;
 }

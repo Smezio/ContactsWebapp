@@ -77,6 +77,6 @@ export class ContactDialog {
 
     // Cancel dialog
     close() : void {
-        this.dialogRef.close();
+        this.dialogRef.close('close');
     }
 }
