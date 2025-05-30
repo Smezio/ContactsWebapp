@@ -35,6 +35,14 @@ public class Contact {
         this.telephone = null;
     }
 
+    public Contact (Long id) {
+        this.id = id;
+        this.firstName = null;
+        this.lastName = null;
+        this.email = null;
+        this.telephone = null;
+    }
+
     public Contact (String firstName, String lastName, String email, String telephone) {
         this.id = null;
         this.firstName = firstName;

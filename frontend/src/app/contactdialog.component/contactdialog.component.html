@@ -1,0 +1,17 @@
+@if(mode().type == 'add') {
+  <h2 mat-dialog-title>Add Contact</h2>
+}
+@else if(mode().type == 'edit'){
+  <h2 mat-dialog-title>Edit Contact</h2>
+}
+@else {
+  <h2 mat-dialog-title>Contact</h2>
+}
+<contact-form 
+  [mode]="mode()"
+  #formRef
+/>
+<mat-dialog-actions>
+  <button matButton (click)="create()" cdkFocusInitial>Confirm</button>
+  <button matButton (click)="close()">Cancel</button>
+</mat-dialog-actions>

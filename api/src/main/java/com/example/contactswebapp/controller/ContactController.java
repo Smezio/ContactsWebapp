@@ -16,6 +16,7 @@ import com.example.contactswebapp.service.ContactService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -39,6 +40,7 @@ public class ContactController {
         }
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_write:contacts')")
     @PostMapping("/contacts")
     public Contact saveContact(@RequestBody Contact contact) {
         try {
@@ -51,6 +53,7 @@ public class ContactController {
         }
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_write:contacts')")
     @PutMapping("/contacts/{id}")
     public Contact updateContact(@RequestBody Contact contact, @PathVariable("id") Long id) {
         try {
@@ -63,11 +66,12 @@ public class ContactController {
         }
     }
 
+    @PreAuthorize("hasAuthority('SCOPE_delete:contacts')")
     @DeleteMapping("/contacts/{id}")
-    public String deleteContact(@PathVariable("id") Long id) {
+    public Contact deleteContact(@PathVariable("id") Long id) {
         try {
             contactService.deleteContactById(id);
-            return "Delete Succeed";
+            return new Contact(id);
         }
         catch (Exception ex) {
             ex.printStackTrace();

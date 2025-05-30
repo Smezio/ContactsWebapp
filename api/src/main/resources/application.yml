@@ -1,5 +1,0 @@
-okta:
-  oauth2:
-    issuer: https://ricsme.eu.auth0.com/
-    audience: https://contactswebapp-api.onrender.com/api
-    #audience: http://localhost:8080/api

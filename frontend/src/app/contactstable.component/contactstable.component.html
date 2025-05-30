@@ -1,0 +1,46 @@
+<button matFab>
+    <mat-icon (click)="openAddDialog({type: 'add'})">add</mat-icon>
+</button>
+
+<table mat-table [dataSource]="contacts" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let contact"> {{contact.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let contact"> {{contact.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let contact"> {{contact.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let contact"> {{contact.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="telephone">
+        <th mat-header-cell *matHeaderCellDef> Telephone </th>
+        <td mat-cell *matCellDef="let contact"> {{contact.telephone}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let contact">
+            <button matFab>
+                <mat-icon (click)="openAddDialog({type: 'edit', contact: contact})">edit</mat-icon>
+            </button>
+            <button matFab>
+                <mat-icon (click)="openDeleteDialog(contact.id)">delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

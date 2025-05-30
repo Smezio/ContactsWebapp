@@ -19,7 +19,7 @@ export const appConfig: ApplicationConfig = {
       authorizationParams: {
         redirect_uri: environment.auth.redirectUri,
         audience: environment.auth.audience,
-        scope: 'read:contacts',
+        scope: 'openid profile email offline_access read:contacts delete:contacts write:contacts',
       },
       httpInterceptor: {
         allowedList: [{
@@ -27,7 +27,7 @@ export const appConfig: ApplicationConfig = {
           tokenOptions: {
             authorizationParams: {
               audience: environment.auth.audience,
-              scope: 'read:contacts'
+              scope: 'openid profile email offline_access read:contacts delete:contacts write:contacts',
             }
           }
         }]

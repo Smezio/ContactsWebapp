@@ -1,0 +1,46 @@
+<div class="form-container">
+  <mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput
+      [formControl]="firstName"
+        (blur)="showFirstNameError()"
+        required>
+    @if (firstName.invalid) {
+        <mat-error>{{errorMessages.firstName()}}</mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput
+      [formControl]="lastName"
+        (blur)="showLastNameError()"
+        required>
+    @if (lastName.invalid) {
+        <mat-error>{{errorMessages.lastName()}}</mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput
+      [formControl]="email"
+        (blur)="showEmailError()"
+        required>
+    @if (email.invalid) {
+        <mat-error>{{errorMessages.email()}}</mat-error>
+      }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Telephone</mat-label>
+    <input matInput
+      [formControl]="telephone"
+        (blur)="showTelephoneError()"
+        type="tel"
+        required>
+    @if (telephone.invalid) {
+        <mat-error>{{errorMessages.telephone()}}</mat-error>
+      }
+  </mat-form-field>
+</div>
