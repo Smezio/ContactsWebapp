@@ -3,10 +3,12 @@ import {
     MAT_DIALOG_DATA,
     MatDialogActions,
     MatDialogRef,
-    MatDialogTitle
+    MatDialogTitle,
+    MatDialogContent,
 } from "@angular/material/dialog"
 import { ContactForm } from "../contactform.component/contactform.component";
 import { Contact, ContactService } from "../contact.service";
+import { HttpErrorResponse } from "@angular/common/http";
 
 export interface ContactDialogMode {
     type : 'add' | 'edit',
@@ -20,7 +22,8 @@ export interface ContactDialogMode {
     imports: [
         MatDialogActions,
         MatDialogTitle,
-        ContactForm
+        ContactForm,
+        MatDialogContent
     ],
 })
 
@@ -72,6 +75,7 @@ export class ContactDialog {
         
     }
 
+    // Cancel dialog
     close() : void {
         this.dialogRef.close();
     }

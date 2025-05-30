@@ -3,7 +3,8 @@ import {
     MAT_DIALOG_DATA,
     MatDialogActions,
     MatDialogRef,
-    MatDialogTitle
+    MatDialogTitle,
+    MatDialogContent,
 } from "@angular/material/dialog"
 import { Contact, ContactService } from "../contact.service";
 
@@ -13,7 +14,8 @@ import { Contact, ContactService } from "../contact.service";
 
     imports: [
         MatDialogActions,
-        MatDialogTitle
+        MatDialogTitle,
+        MatDialogContent
     ],
 })
 
@@ -27,6 +29,7 @@ export class DeleteDialog {
 
     readonly contactService = inject(ContactService);
 
+    // Elaborate delete request after confirmation
     delete() : void {
         this.contactService.deleteContactById(this.data)
             .subscribe({
@@ -41,6 +44,7 @@ export class DeleteDialog {
             });
     }
 
+    // Cancel dialog
     close() : void {
         this.dialogRef.close();
     }

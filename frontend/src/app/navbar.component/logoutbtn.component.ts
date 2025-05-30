@@ -11,6 +11,7 @@ import { environment } from "../../environments/environment";
 export class LogoutBtn {
     constructor(private auth: AuthService){}
 
+    // Calls Auth' for logout
     logout() {
         this.auth.logout({
             logoutParams: {

@@ -3,11 +3,29 @@
     height: 100%;
 
     display: inline-block;
-    background-color: yellow;
+    background-color: aquamarine;
+}
 
-    & ul {
-        text-decoration: none;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-        margin: 20px 20px;
-    }
+li {
+    display: inline;
+    float: left;
+    margin: 20px;
+}
+
+a {
+  display: block;
+  padding: 8px;
+}
+
+login-btn {
+  float: right
+}
+logout-btn {
+  float: right
 }

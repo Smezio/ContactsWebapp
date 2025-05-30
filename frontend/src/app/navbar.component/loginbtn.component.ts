@@ -10,6 +10,7 @@ import { AuthService } from "@auth0/auth0-angular";
 export class LoginBtn {
     constructor(private auth: AuthService){}
 
+    // Calls Auth0 for authentication
     login() {
         this.auth.loginWithRedirect();
     }

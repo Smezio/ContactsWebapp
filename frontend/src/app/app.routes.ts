@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { ContactsTable } from './contactstable.component/contactstable.component';
-import { ErrorComponent } from './error.component';
-import { HomeComponent } from './home.component/home.component';
+import { ErrorPageComponent } from './errorpage.component/errorpage.component';
+import { HomePageComponent } from './home.component/home.component';
 import { AuthGuard } from '@auth0/auth0-angular';
+import { DashboardComponent } from './dashboard.component/dashboard.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'dashboard', component: ContactsTable, canActivate: [AuthGuard]},
-    { path: '**', component: ErrorComponent}
+    { path: '', component: HomePageComponent},
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+    { path: '**', component: ErrorPageComponent}
 ];
