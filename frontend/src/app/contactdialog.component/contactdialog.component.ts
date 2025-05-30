@@ -3,11 +3,10 @@ import {
     MAT_DIALOG_DATA,
     MatDialogActions,
     MatDialogRef,
-    MatDialogClose,
     MatDialogTitle
 } from "@angular/material/dialog"
 import { ContactForm } from "../contactform.component/contactform.component";
-import { Contact } from "../contact.service";
+import { Contact, ContactService } from "../contact.service";
 
 export interface ContactDialogMode {
     type : 'add' | 'edit',
@@ -20,7 +19,6 @@ export interface ContactDialogMode {
 
     imports: [
         MatDialogActions,
-        MatDialogClose,
         MatDialogTitle,
         ContactForm
     ],
@@ -33,19 +31,45 @@ export class ContactDialog {
     readonly dialogRef = inject(MatDialogRef<ContactDialog>);
     readonly data = inject<ContactDialogMode>(MAT_DIALOG_DATA);
     readonly mode = model(this.data);
+    readonly contactService = inject(ContactService);
 
     @ViewChild('formRef') formRef!: ContactForm;
 
+    // Elaborates the request
+    submit() : void {
+        let contact : Contact | undefined = this.formRef.getContact();
 
-    create() : void {
-        console.log('Contact Created');
-        console.log(this.formRef.getContact());
+        if(contact == undefined)
+            return;
+
+        if(this.mode().type == 'add') { // Add new contact
+            this.contactService.addContact(contact)
+                .subscribe({
+                    next: (result) => {
+                        console.log(`Contact of ${result.firstName} ${result.lastName} created`);
+                        this.dialogRef.close(result);
+                    },
+                    error: (error) => {
+                        console.log('Error occurs: ' + error);
+                        this.dialogRef.close();
+                    }
+                })
+        }
+        else if(this.mode().type == 'edit') { // Edit existing contact
+            this.contactService.updateContact(contact)
+                .subscribe({
+                    next: (result) => {
+                        console.log(`Contact of ${result.firstName} ${result.lastName} updated`);
+                        this.dialogRef.close(result);
+                    },
+                    error: (error) => {
+                        console.log('Error occurs: ' + error);
+                        this.dialogRef.close();
+                    }
+                })
+        }
         
-    }
-
-    update() : void {
-        console.log('Contact Updated');
-        console.log(this.formRef.getContact());
+        
     }
 
     close() : void {

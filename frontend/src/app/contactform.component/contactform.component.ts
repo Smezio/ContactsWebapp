@@ -68,7 +68,24 @@ export class ContactForm implements OnInit{
     }
 
     // Provides the contact object to parent node
-    getContact() : Contact {
+    getContact() : Contact | undefined {
+        // Check if fields are valid
+        if(this.firstName.invalid
+            || this.lastName.invalid
+            || this.email.invalid
+            || this.telephone.invalid
+        )
+            return undefined;
+
+        // Check if fields are unchanged
+        if(this.contact.firstName == this.firstName.value
+            && this.contact.lastName == this.lastName.value
+            && this.contact.email == this.email.value
+            && this.contact.telephone == this.telephone.value
+        )
+            return undefined;
+
+        
         this.contact = {
             id: this.contact.id ?? -1,
             firstName : String(this.firstName.value),

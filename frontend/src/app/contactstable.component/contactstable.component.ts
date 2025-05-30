@@ -48,6 +48,33 @@ export class ContactsTable implements OnInit {
         let dialogRef = this.dialog.open(ContactDialog, {
             data: dialogMode,
         });
+
+        dialogRef.afterClosed()
+            .subscribe(
+                result => {
+                    if(result != undefined) {
+                        if(dialogMode.type == 'add') {
+                            console.log('Contact created successfully');
+                            this.contacts.push();
+                        }
+                        else if(dialogMode.type == 'edit') {
+                            console.log('Contact updated successfully');
+                            this.contacts = this.contacts.map((value) => {
+                                if(result.id == value.id) {
+                                    return result;
+                                }
+                                else {
+                                    return value;
+                                }
+                            });
+                        }
+                        
+                    }
+                    else {
+                        console.log('Operations failed');
+                    }
+                }
+            )
     }
 
     // Opens dialog for deletion confirmation
