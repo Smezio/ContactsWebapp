@@ -26,13 +26,6 @@ export class DeleteDialog {
     readonly contactId = model(this.data);
 
     readonly contactService = inject(ContactService);
-    deletedContact : Contact = {
-        id: -1,
-        firstName : '',
-        lastName : '',
-        email : '',
-        telephone : '',
-    };
 
     delete() : void {
         this.contactService.deleteContactById(this.data)

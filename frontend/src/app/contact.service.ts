@@ -5,7 +5,7 @@ import { environment } from "../environments/environment";
 
 
 export interface Contact {
-    id : Number;
+    id ?: Number;
     firstName : String;
     lastName : String;
     email : String;

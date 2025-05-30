@@ -36,7 +36,6 @@ export class ContactForm implements OnInit{
     }
 
     contact: Contact = {
-        id: -1,
         firstName : '',
         lastName : '',
         email : '',
@@ -87,7 +86,7 @@ export class ContactForm implements OnInit{
 
         
         this.contact = {
-            id: this.contact.id ?? -1,
+            id: this.contact.id ?? undefined,
             firstName : String(this.firstName.value),
             lastName : String(this.lastName.value),
             email : String(this.email.value),

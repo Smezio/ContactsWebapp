@@ -2,7 +2,7 @@
     <ul>
         <li><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a></li>
         <li><a routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a></li>
-        @if (auth.isAuthenticated$ | async) {
+        @if (auth.isAuthenticated$ | async let element) {
             <logout-btn />
         }
         @else {

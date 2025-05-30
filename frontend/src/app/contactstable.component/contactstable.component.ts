@@ -35,7 +35,6 @@ export class ContactsTable implements OnInit {
             .subscribe({
                 next : (data) => {
                     this.contacts = data;
-                    console.log(data);
                 },
                 error : (error) => {
                     console.log(error);
@@ -55,7 +54,7 @@ export class ContactsTable implements OnInit {
                     if(result != undefined) {
                         if(dialogMode.type == 'add') {
                             console.log('Contact created successfully');
-                            this.contacts.push();
+                            this.contacts = [...this.contacts, result];
                         }
                         else if(dialogMode.type == 'edit') {
                             console.log('Contact updated successfully');
