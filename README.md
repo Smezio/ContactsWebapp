@@ -14,6 +14,10 @@ API Host: [Render](https://contactswebapp-api.onrender.com)
 - PUT /api/contacts/{id} -> update existing contact
 - DELETE /api/contacts/{id} -> delete existing contact by id
 
+Further information about API can be fetched from the OpenAPI file:
+- JSON: /api/docs 
+- UI: /api/docs/index.html
+
 ## Future works
 - Manage single user contacts
 - Implement application tests

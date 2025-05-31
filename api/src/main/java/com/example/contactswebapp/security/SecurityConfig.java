@@ -20,7 +20,7 @@ public class SecurityConfig {
                     .requestMatchers(HttpMethod.POST, "/api/contacts").hasAuthority("SCOPE_write:contacts")
                     .requestMatchers(HttpMethod.PUT, "/api/contacts/*").hasAuthority("SCOPE_write:contacts")
                     .requestMatchers(HttpMethod.DELETE, "/api/contacts/*").hasAuthority("SCOPE_delete:contacts")
-
+                    .anyRequest().permitAll()
                     )
                     .cors(withDefaults())
                     .oauth2ResourceServer(oauth2 -> oauth2.jwt(withDefaults())
