@@ -28,6 +28,11 @@ public class ContactController {
     @Autowired
     private ContactService contactService;
     
+    /*
+     * Get all contacts
+     * 
+     * @return list of contacts
+     */
     @GetMapping("/contacts")
     public List<Contact> getAllContacts() {
         try {
@@ -40,6 +45,12 @@ public class ContactController {
         }
     }
 
+    /*
+     * Save new contact
+     * 
+     * @param contact
+     * @return saved contact
+     */
     @PreAuthorize("hasAuthority('SCOPE_write:contacts')")
     @PostMapping("/contacts")
     public Contact saveContact(@RequestBody Contact contact) {
@@ -53,6 +64,13 @@ public class ContactController {
         }
     }
 
+    /*
+     * Update existing contact
+     * 
+     * @param contact
+     * @param id
+     * @return updated contact
+     */
     @PreAuthorize("hasAuthority('SCOPE_write:contacts')")
     @PutMapping("/contacts/{id}")
     public Contact updateContact(@RequestBody Contact contact, @PathVariable("id") Long id) {
@@ -66,6 +84,12 @@ public class ContactController {
         }
     }
 
+    /*
+     * Delete contact by id
+     * 
+     * @param id
+     * @return deleted id
+     */
     @PreAuthorize("hasAuthority('SCOPE_delete:contacts')")
     @DeleteMapping("/contacts/{id}")
     public Contact deleteContact(@PathVariable("id") Long id) {

@@ -15,15 +15,19 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // First Name
     @Column(name = "firstName", nullable = false)
     private String firstName;
 
+    // First Name
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
+    // Email
     @Column(name = "email", nullable = false)
     private String email;
     
+    // Telephone
     @Column(name = "telephone", nullable = false)
     private String telephone;
 
