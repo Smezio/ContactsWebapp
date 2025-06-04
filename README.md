@@ -14,6 +14,8 @@ API Host: [Render](https://contactswebapp-api.onrender.com)
 - PUT /api/contacts/{id} -> update existing contact
 - DELETE /api/contacts/{id} -> delete existing contact by id
 
+A public copy of these endpoints are created on /api/public path.
+
 Further information about API can be fetched from the OpenAPI file:
 - JSON: /api/docs 
 - UI: /api/docs/index.html
